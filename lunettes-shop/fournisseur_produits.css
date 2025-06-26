@@ -1,0 +1,200 @@
+/* RESET + BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    color: white;
+}
+
+/* BACKGROUND VIDEO */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* OVERLAY */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #3498db;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #ddd;
+}
+
+/* PRODUCT FORM */
+.product-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.product-form input,
+.product-form textarea,
+.product-form select {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    flex: 1 1 250px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(4px);
+}
+
+.product-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.product-form button {
+    padding: 12px 24px;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-form button:hover {
+    background-color: #27ae60;
+}
+
+/* PRODUCT TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: bold;
+}
+
+td img {
+    width: 60px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* ACTION BUTTONS */
+.action-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+}
+
+.edit-btn {
+    background-color: #3498db;
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* LOGOUT */
+.logout {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.logout a {
+    background-color: #e67e22;
+    padding: 14px 30px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.logout a:hover {
+    background-color: #d35400;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .product-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 20px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 20px;
+        font-weight: bold;
+        text-align: left;
+    }
+}

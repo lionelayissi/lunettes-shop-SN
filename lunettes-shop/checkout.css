@@ -1,0 +1,136 @@
+/* commandes.css ou styles.css selon ton organisation */
+
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+ 
+  color: #eee;
+  overflow-x: hidden;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Video en background : à intégrer dans le HTML ou en CSS via un ::before si tu veux */
+.dashboard-overlay {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Conteneur des messages */
+.success-message, .error-message {
+   background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('assets/images/optic1.jpg');
+  border-radius: 15px;
+  padding: 40px 50px;
+  max-width: 420px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+}
+
+/* Titres */
+.success-message h2 {
+  color: #4CAF50; /* vert */
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.error-message h2 {
+  color: #E53935; /* rouge */
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+/* Paragraphe */
+.success-message p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #ddd;
+}
+
+/* Liste erreurs */
+.error-message ul {
+  list-style: inside disc;
+  text-align: left;
+  margin-bottom: 30px;
+  color: #f7c6c5;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+  border: 2px solid transparent;
+  min-width: 160px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Bouton retour */
+.btn-retour {
+  background-color: #2196F3;
+  color: white;
+  border-color: #2196F3;
+  margin-right: 15px;
+}
+
+.btn-retour:hover {
+  background-color: #1976D2;
+  border-color: #1976D2;
+}
+
+/* Bouton facture */
+.btn-facture {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+.btn-facture:hover {
+  background-color: #388E3C;
+  border-color: #388E3C;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .success-message, .error-message {
+    max-width: 90vw;
+    padding: 30px 20px;
+  }
+  .btn {
+    min-width: 140px;
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+}

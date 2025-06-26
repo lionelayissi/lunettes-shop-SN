@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.login-container {
+    background: rgba(0, 0, 0, 0.6) url('assets/images/optic2.jpg') no-repeat center center / cover;
+    width: 100%;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 12px;
+    color: black;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0055a5;
+    border: none;
+    color: white;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #003f7f;
+}
+
+.login-container .error {
+    color: #f44336;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.login-container .retour {
+    display: block;
+    margin-top: 20px;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.login-container .retour:hover {
+    color: #ffd700;
+}

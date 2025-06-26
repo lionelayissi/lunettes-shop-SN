@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="facture_style.xsl"?>
+<facture><numero>30</numero><date>2025-06-10 12:45:51</date><client>BENGA</client><statut>CONFIRMER</statut><produits><produit><nom>Optic Vue pro</nom><quantite>4</quantite><prix_unitaire>18000.00</prix_unitaire><total>72000</total></produit></produits><total>72000</total></facture>

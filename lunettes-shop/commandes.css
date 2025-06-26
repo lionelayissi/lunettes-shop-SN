@@ -1,0 +1,167 @@
+/* Image de fond globale + overlay sombre */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  position: relative;
+  background: url('assets/images/optic3.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/* Overlay sombre transparent */
+.background-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 0;
+}
+
+/* Container centré avec padding */
+.commandes-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  margin: 60px auto 40px auto;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+/* Titre principal */
+.commandes-container h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1e90ff;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Message si pas de commande */
+.empty-msg {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #ddd;
+  font-style: italic;
+}
+
+/* Liste flex des commandes */
+.commandes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+}
+
+/* Carte commande */
+.commande-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 25px 30px;
+  width: 320px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.commande-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+/* Titre commande avec date */
+.commande-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #1e90ff;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: space-between;
+}
+
+.commande-card h3 span {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #cfd8dc;
+  font-style: italic;
+  align-self: center;
+}
+
+/* Texte commande */
+.commande-card p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+.commande-card p strong {
+  color: #ffd54f;
+  font-weight: 700;
+}
+
+/* Statuts colorés */
+.statut {
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1rem;
+  color: #fff;
+  display: inline-block;
+}
+
+.statut.en_attente {
+  background-color: #f39c12; /* orange */
+}
+
+.statut.confirmée, .statut.confirmee {
+  background-color: #27ae60; /* vert */
+}
+
+.statut.annulée, .statut.annulee {
+  background-color: #e74c3c; /* rouge */
+}
+
+.statut.expédiée, .statut.expediee {
+  background-color: #2980b9; /* bleu */
+}
+
+/* Bouton voir facture */
+.btn {
+  margin-top: auto;
+  padding: 12px 20px;
+  background-color: #1e90ff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(30, 144, 255, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  background-color: #005bb5;
+  box-shadow: 0 7px 18px rgba(0, 91, 181, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .commandes-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .commande-card {
+    width: 90%;
+  }
+}

@@ -1,0 +1,210 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.background-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+} 
+
+.animated-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    animation: scrollTitle 10s linear infinite;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes scrollTitle {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.admin-btn {
+    position: absolute;
+    top: 20px;
+    right: px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.admin-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.produits-section {
+    padding: 60px 30px;
+    background-image: url('assets/images/optic2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white; /* optionnel, si le fond est sombre */
+}
+
+
+.produits-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.produits-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.produit-card {
+    background: burlywood;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.produit-card:hover {
+    transform: scale(1.05);
+}
+
+.produit-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.produit-card h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.categorie {
+    font-style: italic;
+    color: #666;
+}
+
+.description {
+    margin: 10px 0;
+    color: #444;
+}
+
+.prix {
+    font-weight: bold;
+    color: #E91E63;
+    font-size: 1.1rem;
+}
+
+.voir-plus-container {
+    margin-top: 40px;
+}
+
+.voir-plus-btn {
+    background: #E91E63;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.voir-plus-btn:hover {
+    background: #c2185b;
+}
+
+.produit-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-color:burlywood;
+    padding: 20px;
+    margin: 20px;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.produit-card:hover {
+    transform: translateY(-5px);
+}
+
+.produit-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.produit-nom {
+    font-size: 1.3rem;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.produit-marque {
+    color: #777;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.produit-description {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.produit-prix {
+    color: red;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.produit-categorie {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #555;
+}
+
+
+

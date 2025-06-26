@@ -1,0 +1,103 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    position: relative;
+    min-height: 100vh;
+   
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.7);
+    z-index: -1;
+}
+
+.commandes-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+}
+
+h1 {
+    text-align: center;
+    color: #1E90FF;
+    margin-bottom: 30px;
+}
+
+.filtres-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.filtres-form input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 180px;
+}
+
+.commande-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #1E90FF;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.commande-card h3 {
+    margin: 0 0 5px;
+    font-size: 1.2em;
+    color: #00bfff;
+}
+
+.commande-card p {
+    margin: 5px 0;
+}
+
+.commande-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #1E90FF;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #aaa;
+    font-style: italic;
+}
+
+.statut.confirmée {
+    color: #0f0;
+}
+.statut.en_attente {
+    color: #ff0;
+}
+.statut.annulée {
+    color: #f00;
+}
+

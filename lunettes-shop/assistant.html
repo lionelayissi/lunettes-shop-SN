@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Assistant Vocal - Vente de Lunettes</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #resultat { margin-top: 20px; }
+    .produit { margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+
+  <h2>Assistant vocal de la boutique de lunettes</h2>
+
+  <button onclick="startRecognition()">🎙️ Parler</button>
+  <p id="output">Cliquez sur le micro pour parler...</p>
+
+  <div id="resultat"></div>
+
+  <script>
+    const output = document.getElementById("output");
+    const resultatDiv = document.getElementById("resultat");
+
+    let attenteConfirmationContact = false;
+
+    const suggestions = {
+      "lunettes bleues": "Vous aimerez peut-être aussi les lunettes rouges pour compléter votre style.",
+      "lunettes pour enfant": "Je vous suggère aussi nos lunettes souples, parfaites pour les enfants actifs.",
+      "rayban": "Pourquoi ne pas essayer les lunettes Optic Vue Pro pour un look moderne ?",
+      "optic vue pro": "Je peux aussi vous recommander les RayBan édition limitée si vous aimez les modèles haut de gamme.",
+      "lunettes rouges": "Les lunettes bleues pourraient vous plaire également pour varier.",
+      "lunettes rondes": "Avez-vous vu notre sélection de lunettes ovales ? Elles sont très tendance."
+    };
+
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'fr-FR';
+    recognition.interimResults = false;
+
+    recognition.onresult = function(event) {
+      const command = event.results[0][0].transcript.toLowerCase();
+      output.innerText = "Vous avez dit : " + command;
+      resultatDiv.innerHTML = "";
+
+      // Si l'assistant attend une confirmation "oui"
+      if (attenteConfirmationContact) {
+        if (command.includes("oui")) {
+          speak("Très bien, je vous redirige vers le service contact desole c'est juste que j'ai trop la flemme pour vous repondre ");
+          setTimeout(() => {
+            window.location.href = "contact.html"; // Change le nom si nécessaire
+          }, 2000);
+        } else {
+          speak("D'accord, dites-moi comment je peux vous aider.");
+        }
+        attenteConfirmationContact = false;
+        return;
+      }
+
+      // Réponses aux commandes
+      if (command.includes("lunettes de soleil") || command.includes("solaires")) {
+        speak("Voici les lunettes de soleil disponibles : lunettes bleues, lunettes pour enfant, lunettes RayBan édition limitée 2024, Optic Vue Pro, lunettes rouges, lunettes rondes. Dites-moi votre choix !");
+        resultatDiv.innerHTML = `
+          <h3>👓 Lunettes de soleil disponibles :</h3>
+          <ul>
+            <li>Lunettes bleues</li>
+            <li>Lunettes pour enfant</li>
+            <li>Lunettes RayBan édition limitée 2024</li>
+            <li>Optic Vue Pro</li>
+            <li>Lunettes rouges</li>
+            <li>Lunettes rondes</li>
+          </ul>
+        `;
+      } else if (command.includes("lunettes de vue") || command.includes("vue")) {
+        speak("Voici les lunettes de vue en promotion. Voulez-vous une suggestion ?");
+        resultatDiv.innerHTML = `
+          <h3>👓 Lunettes de vue en promotion :</h3>
+          <p>Demandez-moi une suggestion pour plus d'informations.</p>
+        `;
+        attenteConfirmationContact = true;
+      } else if (command.includes("Peux tu m'aider?") || command.includes("assistant")) {
+        speak("Je suis votre assistant intelligent. Je peux vous aider à trouver des lunettes de soleil, de vue ou des promotions. Que souhaitez-vous ?");
+        resultatDiv.innerHTML = `
+          <h3>🤖 Assistance :</h3>
+          <p>Dites par exemple \"montre-moi les lunettes de soleil\" ou \"quelles lunettes de vue sont en promotion\".</p>
+        `;
+      } else {
+        let foundSuggestion = false;
+        for (let motCle in suggestions) {
+          if (command.includes(motCle)) {
+            speak("Très bon choix ! " + suggestions[motCle]);
+            foundSuggestion = true;
+            break;
+          }
+        }
+
+        if (!foundSuggestion) {
+          speak("Désolé, je n'ai pas compris votre demande. Pouvez-vous répéter ?");
+          resultatDiv.innerHTML = `<p>Commande non reconnue. Essayez "lunettes de soleil" ou "aide".</p>`;
+        }
+      }
+    }
+
+    function speak(text) {
+      const synth = window.speechSynthesis;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'fr-FR';
+
+      utterance.onend = () => {
+        startRecognition();
+      };
+
+      synth.speak(utterance);
+    }
+
+    function startRecognition() {
+      recognition.start();
+    }
+  </script>
+
+</body>
+</html>

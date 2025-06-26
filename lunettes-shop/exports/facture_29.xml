@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="facture_style.xsl"?>
+<facture><numero>29</numero><date>2025-06-09 15:16:33</date><client>Shawn</client><statut>Confirmé</statut><produits><produit><nom>lunette_enfant</nom><quantite>3</quantite><prix_unitaire>5000.00</prix_unitaire><total>15000</total></produit><produit><nom>RayBan 2024</nom><quantite>1</quantite><prix_unitaire>45000.00</prix_unitaire><total>45000</total></produit><produit><nom>Optic Vue pro</nom><quantite>2</quantite><prix_unitaire>18000.00</prix_unitaire><total>36000</total></produit><produit><nom>VisionSoft</nom><quantite>3</quantite><prix_unitaire>10000.00</prix_unitaire><total>30000</total></produit></produits><total>126000</total></facture>

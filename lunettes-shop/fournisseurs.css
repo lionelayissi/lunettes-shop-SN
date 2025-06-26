@@ -1,0 +1,80 @@
+/* Video en arrière-plan */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+/* Superposition */
+.overlay {
+    position: relative;
+    z-index: 1;
+    color: #000;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Conteneur principal */
+.contenu {
+    max-width: 900px;
+    margin: 60px auto;
+    background: url('assets/images/optic2.jpg') no-repeat center center/cover;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: rgba(255,255,255,0.95);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #007bff;
+    color: transparent;
+}
+
+/* Bouton supprimer */
+.btn-supprimer {
+    color: red;
+    font-weight: bold;
+    text-decoration: none;
+}
+.btn-modifier {
+    margin-left: 8px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Formulaire ajout */
+.form-ajout {
+    margin-top: 30px;
+}
+.form-ajout input, .form-ajout textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    margin-bottom: 8px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.form-ajout button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}

@@ -1,0 +1,20 @@
+$xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="facture_style.xsl"?>
+<facture/>');
+<facture>
+    <numero><?= $commande['id'] ?></numero>
+    <date><?= $commande['date_commande'] ?></date>
+    <client><?= htmlspecialchars($_SESSION['user_nom'] ?? 'Client') ?></client>
+    <statut><?= $commande['statut'] ?></statut>
+    <total><?= $totalGeneral ?></total>
+    <produits>
+        <?php foreach ($details as $d): ?>
+        <produit>
+            <nom><?= htmlspecialchars($d['nom']) ?></nom>
+            <quantite><?= $d['quantite'] ?></quantite>
+            <prix_unitaire><?= $d['prix_unitaire'] ?></prix_unitaire>
+            <total><?= $d['quantite'] * $d['prix_unitaire'] ?></total>
+        </produit>
+        <?php endforeach; ?>
+    </produits>
+</facture>

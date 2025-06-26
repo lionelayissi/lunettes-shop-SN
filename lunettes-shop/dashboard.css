@@ -1,0 +1,221 @@
+/* VIDEO en arrière-plan */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* Overlay pour contenu lisible */
+.dashboard-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+}
+
+.dashboard-header a {
+    color: #fff;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Produits */
+.produits-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.produit-card {
+    background: burlywood;
+    color: #000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ;
+    display: flex;
+    margin: 20px;
+    text-align: center;
+}
+.produit-card:hover {
+    transform: translateY(-5px);
+}
+.produit-card img {
+    width: 100%;
+    border-radius: 8px;
+    height: 200px;
+    object-fit: cover;
+}
+.produit-card h3 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+}
+.produit-card p {
+    margin: 4px 0;
+}
+.produit-card .prix {
+    color: red;
+    font-weight: bold;
+}
+.produit-card .marque {
+    color: gray;
+    font-size: 0.9em;
+}
+.produit-card .categorie {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #0077cc;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .produits-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Barre de recherche */
+.search-container {
+    position: relative;
+    max-width: 400px;
+    margin: 40px auto; /* centre horizontalement ET ajoute un peu d’espace */
+    text-align: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: 2px solid #0077cc;
+    border-radius: 25px;
+    outline: none;
+    background-color: black;
+    color: #fff;
+    height: 35px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 8px #0077ccaa;
+    background-color: #111;
+}
+
+/* Suggestions box bien positionnée sous l’input */
+.suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 10px 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+.suggestions-box div {
+    padding: 10px 12px;
+    cursor: pointer;
+}
+.suggestions-box div:hover {
+    background-color: #f2f2f2;
+}
+
+/* Mini panier */
+.mini-cart {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: #f8f8f8cc;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 0 0 8px #888;
+    display: none;
+    z-index: 9999;
+    border-radius: 6px;
+}
+.mini-cart ul {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.mini-cart li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.mini-cart img {
+    margin-right: 8px;
+    border-radius: 4px;
+}
+
+/* Bouton Ajouter au panier */
+.add-to-cart-btn {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 119, 204, 0.4);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 95, 163, 0.6);
+}
+
+.add-to-cart-btn:disabled,
+.add-to-cart-btn[disabled] {
+    background-color: #ccc;
+    cursor: default;
+    box-shadow: none;
+    color: #666;
+}
+
+.add-to-cart-btn.added {
+    background-color: #28a745;
+    color: white;
+    pointer-events: none;
+    transform: scale(1.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 6px 12px rgba(40, 167, 69, 0.6);
+    animation: pop 0.3s forwards;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1.1); }
+}
